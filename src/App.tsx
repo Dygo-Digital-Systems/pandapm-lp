@@ -1,42 +1,45 @@
 import { useEffect, useRef } from 'react';
 
 function App() {
-  const observerRef = useRef(null);
 
-  useEffect(() => {
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-fade-in-up, .animate-scale-in').forEach(el => {
-      observerRef.current.observe(el);
-    });
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
-
-  const scrollToSection = (e, id) => {
-    e.preventDefault();
-    const target = document.querySelector(id);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+useEffect(() => {
+  const observerOptions: IntersectionObserverInit = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
   };
+
+  observerRef.current = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const element = entry.target as HTMLElement;
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  const elements = document.querySelectorAll<HTMLElement>(
+    '.animate-fade-in-up, .animate-scale-in'
+  );
+
+  elements.forEach((el) => {
+    observerRef.current?.observe(el);
+  });
+
+  return () => {
+    observerRef.current?.disconnect();
+  };
+}, []);
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  e.preventDefault();
+  const target = document.querySelector(id);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
 
   return (
     <div className="relative bg-[#242424] text-[#f8fafc] overflow-x-hidden">
