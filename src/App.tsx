@@ -102,10 +102,7 @@ useEffect(() => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up opacity-0 delay-300">
               <button className="px-8 py-3 bg-[#484848] hover:bg-[#5a5a5a] text-white font-semibold rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(72,72,72,0.4)]">
-                Try for Free
-              </button>
-              <button className="px-8 py-3 bg-transparent text-[#484848] border-2 border-[#484848] hover:bg-[#484848] hover:text-white font-semibold rounded-lg transition-all duration-300">
-                Watch Demo
+                Try our demo
               </button>
             </div>
             <div className="flex items-center space-x-8 text-sm text-gray-400 animate-fade-in-up opacity-0 delay-400">
@@ -131,37 +128,64 @@ useEffect(() => {
           </div>
           
           <div className="w-full max-w-[600px] mx-auto animate-scale-in opacity-0 delay-200">
-            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-[#484848]/30 shadow-2xl">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="bg-[#484848]/10 border border-[#484848]/30 rounded-lg p-3 min-h-[120px]">
-                  <div className="text-xs font-semibold text-gray-400 mb-2">TO DO</div>
-                  <div className="bg-[#1e293b] rounded-md p-2 mb-2 text-xs border-l-3 border-l-[#484848]">Define project scope</div>
-                  <div className="bg-[#1e293b] rounded-md p-2 text-xs border-l-3 border-l-[#484848]">Research tools</div>
-                </div>
-                <div className="bg-[#484848]/10 border border-[#484848]/30 rounded-lg p-3 min-h-[120px]">
-                  <div className="text-xs font-semibold text-gray-400 mb-2">IN PROGRESS</div>
-                  <div className="bg-[#1e293b] rounded-md p-2 text-xs border-l-3 border-l-[#484848]">Create wireframes</div>
-                </div>
-                <div className="bg-[#484848]/10 border border-[#484848]/30 rounded-lg p-3 min-h-[120px]">
-                  <div className="text-xs font-semibold text-gray-400 mb-2">DONE</div>
-                  <div className="bg-[#1e293b] rounded-md p-2 text-xs border-l-3 border-l-[#484848]">Initial meeting</div>
-                </div>
-              </div>
-              <div className="mt-4 p-3 bg-[#484848]/20 border border-[#484848]/30 rounded-lg">
-                <div className="flex items-center space-x-2 text-sm">
-                  <svg className="w-4 h-4 text-[#FFFFFF] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"/>
-                  </svg>
-                  <span className="text-gray-300 font-medium">Suggestion: Complete "Research tools" first (15 min)</span>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div className="relative bg-[#242424] rounded-2xl p-6 border border-[#484848] shadow-2xl">
+    
+    {/* Top controls (macOS real colors) */}
+    <div className="flex items-center space-x-2 mb-4">
+      <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+      <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+      <div className="w-3 h-3 rounded-full bg-[#28C840]" />
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      
+      {/* Column */}
+      <div className="bg-[#484848] border border-[#484848] rounded-lg p-3 min-h-[120px]">
+        <div className="text-xs font-semibold text-[#FFFFFF] mb-2">TO DO</div>
+        <div className="bg-[#000000] rounded-md p-2 mb-2 text-xs text-[#FFFFFF] border-l-4 border-l-[#FFFFFF]">
+          Define project scope
+        </div>
+        <div className="bg-[#000000] rounded-md p-2 text-xs text-[#FFFFFF] border-l-4 border-l-[#FFFFFF]">
+          Research tools
+        </div>
+      </div>
+
+      {/* Column */}
+      <div className="bg-[#484848] border border-[#484848] rounded-lg p-3 min-h-[120px]">
+        <div className="text-xs font-semibold text-[#FFFFFF] mb-2">IN PROGRESS</div>
+        <div className="bg-[#000000] rounded-md p-2 text-xs text-[#FFFFFF] border-l-4 border-l-[#FFFFFF]">
+          Create wireframes
+        </div>
+      </div>
+
+      {/* Column */}
+      <div className="bg-[#484848] border border-[#484848] rounded-lg p-3 min-h-[120px]">
+        <div className="text-xs font-semibold text-[#FFFFFF] mb-2">DONE</div>
+        <div className="bg-[#000000] rounded-md p-2 text-xs text-[#FFFFFF] border-l-4 border-l-[#FFFFFF]">
+          Initial meeting
+        </div>
+      </div>
+    </div>
+
+    {/* Suggestion box */}
+    <div className="mt-4 p-3 bg-[#484848] border border-[#FFFFFF] rounded-lg">
+      <div className="flex items-center space-x-2 text-sm text-[#FFFFFF]">
+        <svg
+          className="w-4 h-4 flex-shrink-0 text-[#FFFFFF]"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"/>
+        </svg>
+        <span className="font-medium">
+          Suggestion: Complete "Research tools" first (15 min)
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
         </div>
       </section>
 
@@ -183,7 +207,7 @@ useEffect(() => {
             {
               icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>,
               title: "Intelligent Prioritization",
-              description: "LangChain agent analyzes your tasks and indicates which ones can be completed more quickly, optimizing your time.",
+              description: "PandaPM agent analyzes your tasks and indicates which ones can be completed more quickly, optimizing your time.",
               delay: "delay-200"
             },
             {
@@ -234,7 +258,7 @@ useEffect(() => {
         <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
           {[
             { step: "1", title: "Describe Your Goal", description: "Type what you want to achieve or the question you need to solve. Be specific or general, the AI understands." },
-            { step: "2", title: "Receive the Steps", description: "The LangChain agent processes your goal and generates a detailed action plan, organized in a Kanban board." },
+            { step: "2", title: "Receive the Steps", description: "The PandaPM agent processes your goal and generates a detailed action plan, organized in a Kanban board." },
             { step: "3", title: "Execute and Track", description: "Follow prioritization suggestions, mark tasks as complete, and see your progress in real-time." }
           ].map((item, index) => (
             <div key={index} className="text-center">
@@ -258,9 +282,9 @@ useEffect(() => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
             {
-              name: "Starter",
+              name: "Demo",
               description: "To validate ideas and organize personal projects",
-              price: "$9",
+              price: "Free",
               features: [
                 "Up to 3 active projects",
                 "Intelligent breakdown with AI",
@@ -270,38 +294,52 @@ useEffect(() => {
                 "Email support"
               ],
               popular: false
-            },
-            {
-              name: "Professional",
-              description: "For professionals who execute with consistency",
-              price: "$29",
-              features: [
-                "Up to 7 active projects",
-                "Deep and iterative breakdown",
-                "Automatic plan restructuring",
-                "Context and progress memory",
-                "Productivity analysis",
-                "Report export",
-                "Priority support"
-              ],
-              popular: true
-            },
-            {
-              name: "Business",
-              description: "For founders, teams, and complex projects",
-              price: "$59",
-              features: [
-                "Unlimited projects",
-                "Advanced multi-level decomposition",
-                "Dynamic adjustment based on performance",
-                "Automatic strategic prioritization",
-                "Real-time collaboration",
-                "Executive dashboard",
-                "Integrations (Notion, Google, etc.)",
-                "24/7 dedicated support"
-              ],
-              popular: false
             }
+            // {
+            //   name: "Starter",
+            //   description: "To validate ideas and organize personal projects",
+            //   price: "$9",
+            //   features: [
+            //     "Up to 3 active projects",
+            //     "Intelligent breakdown with AI",
+            //     "Up to 2 levels of decomposition per project",
+            //     "Automatic prioritization",
+            //     "Dynamic Kanban board",
+            //     "Email support"
+            //   ],
+            //   popular: false
+            // },
+            // {
+            //   name: "Professional",
+            //   description: "For professionals who execute with consistency",
+            //   price: "$29",
+            //   features: [
+            //     "Up to 7 active projects",
+            //     "Deep and iterative breakdown",
+            //     "Automatic plan restructuring",
+            //     "Context and progress memory",
+            //     "Productivity analysis",
+            //     "Report export",
+            //     "Priority support"
+            //   ],
+            //   popular: true
+            // },
+            // {
+            //   name: "Business",
+            //   description: "For founders, teams, and complex projects",
+            //   price: "$59",
+            //   features: [
+            //     "Unlimited projects",
+            //     "Advanced multi-level decomposition",
+            //     "Dynamic adjustment based on performance",
+            //     "Automatic strategic prioritization",
+            //     "Real-time collaboration",
+            //     "Executive dashboard",
+            //     "Integrations (Notion, Google, etc.)",
+            //     "24/7 dedicated support"
+            //   ],
+            //   popular: false
+            // }
           ].map((plan, index) => (
             <div key={index} className={`relative bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-2xl p-8 transition-all duration-400 hover:-translate-y-2 hover:scale-[1.02] ${plan.popular ? 'border-2 border-[#484848] shadow-[0_25px_50px_rgba(72,72,72,0.3)]' : 'border-2 border-[#484848]/30 hover:border-[#484848] hover:shadow-[0_25px_50px_rgba(72,72,72,0.3)]'}`}>
               {plan.popular && (
@@ -349,9 +387,6 @@ useEffect(() => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 bg-[#484848] hover:bg-[#5a5a5a] text-white text-lg font-semibold rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(72,72,72,0.4)]">
               Start Free Trial
-            </button>
-            <button className="px-8 py-4 bg-transparent text-[#484848] text-lg border-2 border-[#484848] hover:bg-[#484848] hover:text-white font-semibold rounded-lg transition-all duration-300">
-              Schedule Demo
             </button>
           </div>
         </div>
