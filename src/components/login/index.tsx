@@ -1,5 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
-import { useNavigate } from "react-router-dom";
+import { trackEvent } from "../../utils/analytics";
 
 export default function Login({onClose}: {onClose?: () => void}) {
   return (
@@ -10,8 +10,10 @@ export default function Login({onClose}: {onClose?: () => void}) {
     <GoogleLogin
       onSuccess={() => {
         onClose?.();
+        trackEvent("login_success", { method: "google" });
       }}
       onError={() => {
+        trackEvent("login_failed", { method: "google" });
         console.log("Login Failed");
       }}
       />
