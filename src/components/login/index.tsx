@@ -10,7 +10,7 @@ export default function Login({onClose}: {onClose?: () => void}) {
 
     <GoogleLogin
       onSuccess={() => {
-        navigate('/payments', { state: { plan: 'demo' } });
+        onClose?.();
       }}
       onError={() => {
         console.log("Login Failed");
