@@ -1,47 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
+import Login from './components/login';
 
 function App() {
 
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-useEffect(() => {
-  const observerOptions: IntersectionObserverInit = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-  };
-
-  observerRef.current = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const element = entry.target as HTMLElement;
-        element.style.opacity = '1';
-        element.style.transform = 'translateY(0)';
-      }
-    });
-  }, observerOptions);
-
-  const elements = document.querySelectorAll<HTMLElement>(
-    '.animate-fade-in-up, .animate-scale-in'
-  );
-
-  elements.forEach((el) => {
-    observerRef.current?.observe(el);
-  });
-
-  return () => {
-    observerRef.current?.disconnect();
-  };
-}, []);
-
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-  e.preventDefault();
-  const target = document.querySelector(id);
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-};
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
+    <>
+      {showLogin && <Login onClose={() => setShowLogin(false)} />}
     <div className="relative bg-[#242424] text-[#f8fafc] overflow-x-hidden">
       {/* Grain overlay */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none opacity-[0.03] z-[100]" 
@@ -66,24 +32,24 @@ useEffect(() => {
               <span className="text-2xl font-bold" style={{ fontFamily: 'Syne, sans-serif' }}>PandaPM</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="text-gray-300 hover:text-white transition-colors relative group">
+              <a href="#home" className="text-gray-300 hover:text-white transition-colors relative group">
                 Home
                 <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#484848] transition-all duration-300 group-hover:w-full" />
               </a>
-              <a href="#features" onClick={(e) => scrollToSection(e, '#features')} className="text-gray-300 hover:text-white transition-colors relative group">
+              <a href="#features" className="text-gray-300 hover:text-white transition-colors relative group">
                 Features
                 <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#484848] transition-all duration-300 group-hover:w-full" />
               </a>
-              <a href="#pricing" onClick={(e) => scrollToSection(e, '#pricing')} className="text-gray-300 hover:text-white transition-colors relative group">
+              <a href="#pricing" className="text-gray-300 hover:text-white transition-colors relative group">
                 Pricing
                 <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#484848] transition-all duration-300 group-hover:w-full" />
               </a>
-              <a href="#contact" onClick={(e) => scrollToSection(e, '#contact')} className="text-gray-300 hover:text-white transition-colors relative group">
+              <a href="#contact" className="text-gray-300 hover:text-white transition-colors relative group">
                 Contact
                 <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#484848] transition-all duration-300 group-hover:w-full" />
               </a>
             </div>
-            <button className="px-8 py-3 bg-[#484848] hover:bg-[#5a5a5a] text-white font-semibold rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(72,72,72,0.4)]">
+            <button onClick={()=> setShowLogin(true)} className="px-8 py-3 bg-[#484848] hover:bg-[#5a5a5a] text-white font-semibold rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(72,72,72,0.4)]">
               Get Started
             </button>
           </div>
@@ -101,7 +67,7 @@ useEffect(() => {
               Desktop SaaS software that converts your goals and questions into an automatically managed Kanban board. Artificial intelligence identifies the tasks you can complete most quickly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up opacity-0 delay-300">
-              <button className="px-8 py-3 bg-[#484848] hover:bg-[#5a5a5a] text-white font-semibold rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(72,72,72,0.4)]">
+              <button onClick={() => setShowLogin(true)} className="px-8 py-3 bg-[#484848] hover:bg-[#5a5a5a] text-white font-semibold rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(72,72,72,0.4)]">
                 Try our demo
               </button>
             </div>
@@ -367,7 +333,7 @@ useEffect(() => {
                   </li>
                 ))}
               </ul>
-              <button className={`w-full px-8 py-3 font-semibold rounded-lg transition-all duration-300 ${plan.popular ? 'bg-[#484848] hover:bg-[#5a5a5a] text-white hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(72,72,72,0.4)]' : 'bg-transparent text-[#484848] border-2 border-[#484848] hover:bg-[#484848] hover:text-white'}`}>
+              <button onClick={()=> setShowLogin(true)} className={`w-full px-8 py-3 font-semibold rounded-lg transition-all duration-300 ${plan.popular ? 'bg-[#484848] hover:bg-[#5a5a5a] text-white hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(72,72,72,0.4)]' : 'bg-transparent text-[#484848] border-2 border-[#484848] hover:bg-[#484848] hover:text-white'}`}>
                 Get Started
               </button>
             </div>
@@ -442,8 +408,8 @@ useEffect(() => {
             <div>
               <h4 className="font-bold mb-4">Product</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="#features" onClick={(e) => scrollToSection(e, '#features')} className="hover:text-white transition">Features</a></li>
-                <li><a href="#pricing" onClick={(e) => scrollToSection(e, '#pricing')} className="hover:text-white transition">Pricing</a></li>
+                <li><a href="#features" className="hover:text-white transition">Features</a></li>
+                <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
                 <li><a href="#" className="hover:text-white transition">Updates</a></li>
                 <li><a href="#" className="hover:text-white transition">Roadmap</a></li>
               </ul>
@@ -454,7 +420,7 @@ useEffect(() => {
                 <li><a href="#" className="hover:text-white transition">About</a></li>
                 <li><a href="#" className="hover:text-white transition">Blog</a></li>
                 <li><a href="#" className="hover:text-white transition">Careers</a></li>
-                <li><a href="#contact" onClick={(e) => scrollToSection(e, '#contact')} className="hover:text-white transition">Contact</a></li>
+                <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
               </ul>
             </div>
             <div>
@@ -528,6 +494,8 @@ useEffect(() => {
         .delay-600 { animation-delay: 0.6s; }
       `}</style>
     </div>
+        </>
+
   );
 }
 
